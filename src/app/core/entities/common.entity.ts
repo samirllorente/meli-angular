@@ -8,7 +8,7 @@ export interface SearchResponse {
 
 export interface ProductDetailResponse {
     author: Author,
-    item: ProductItemExtended
+    item: ProductItemExtended | null
 }
 
 interface Author {

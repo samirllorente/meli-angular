@@ -7,7 +7,6 @@ import { SearchBoxModule } from '../search-box/search-box.module';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ItemsFilterComponent } from './components/items-filter/items-filter.component';
 
-
 @NgModule({
   declarations: [
     SearchResultComponent,

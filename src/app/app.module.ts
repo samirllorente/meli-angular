@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 
 import { SearchBoxModule } from './modules/search-box/search-box.module';
 import { SearchResultModule } from './modules/search-result/search-result.module';
+import { ProductDetailModule } from './modules/product-detail/product-detail.module';
 import { StoresModule } from './core/modules/stores/stores.module';
 
 @NgModule({

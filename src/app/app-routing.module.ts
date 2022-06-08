@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SearchBoxComponent } from './modules/search-box/search-box.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'items',
+    component: SearchBoxComponent,
     loadChildren: () =>
       import('./modules/search-result/search-result-routing.module').then(
         (Mod) => Mod.SearchResultRoutingModule
@@ -18,6 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'items/:id',
+    component: SearchBoxComponent,
     loadChildren: () =>
       import('./modules/product-detail/product-detail-routing.module').then(
         (Mod) => Mod.ProductDetailRoutingModule
