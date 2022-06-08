@@ -1,0 +1,11 @@
+<div class="product pb-0">
+  <div class="product-container d-flex">
+    <img [src]="product?.picture" class="product-picture" />
+    <div class="col-5">
+      <h2 class="product-price">{{ product?.price?.amount | currency }}</h2>
+      <a>
+        <h3 class="product-title">{{ product?.title | titlecase }}</h3>
+      </a>
+    </div>
+  </div>
+</div>

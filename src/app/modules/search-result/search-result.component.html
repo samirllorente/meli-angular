@@ -1,0 +1,11 @@
+<app-search-box [searchText]="searchText"></app-search-box>
+<div class="container">
+  <div class="row">
+    <app-items-filter class="d-block col-10 offset-1" [filters]="categories$ | async"></app-items-filter>
+    <app-product-card
+      class="d-block col-10 offset-1"
+      *ngFor="let product of productList$ | async"
+      [product]="product"
+    ></app-product-card>
+  </div>
+</div>
