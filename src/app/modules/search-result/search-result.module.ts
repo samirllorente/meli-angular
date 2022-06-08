@@ -6,6 +6,7 @@ import { SearchResultComponent } from './search-result.component';
 import { SearchBoxModule } from '../search-box/search-box.module';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ItemsFilterComponent } from './components/items-filter/items-filter.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ItemsFilterComponent } from './components/items-filter/items-filter.com
     CommonModule,
     SearchResultRoutingModule,
     SearchBoxModule,
+    TranslateModule
   ]
 })
 export class SearchResultModule { }

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SearchBoxRoutingModule } from './search-box-routing.module';
 import { SearchBoxComponent } from './search-box.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SearchBoxComponent } from './search-box.component';
     SearchBoxRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule
   ],
   exports: [
     SearchBoxComponent,

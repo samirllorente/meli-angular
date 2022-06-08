@@ -1,0 +1,17 @@
+{
+    "COMMON": {
+        "IMAGE_PLACEHOLDER": "Imagen del producto"
+    },
+    "SEARCH_BOX": {
+        "PLACEHOLDER": "Nunca dejes de buscar"
+    },
+    "PRODUCT_DETAIL": {
+        "CONDITION": {
+            "NEW": "Nuevo",
+            "USED": "Usado"
+        },
+        "SOLD_QUANTITY": "vendidos",
+        "BUY_BUTTON": "Comprar",
+        "DESCRIPTION_TITLE": "Descripción del producto"
+    }
+}

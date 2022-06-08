@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
@@ -12,8 +12,14 @@ import { AppComponent } from './app.component';
 import { SearchBoxModule } from './modules/search-box/search-box.module';
 import { SearchResultModule } from './modules/search-result/search-result.module';
 import { ProductDetailModule } from './modules/product-detail/product-detail.module';
-import { StoresModule } from './core/modules/stores/stores.module';
 
+import { StoresModule } from './core/modules/stores/stores.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -27,6 +33,14 @@ import { StoresModule } from './core/modules/stores/stores.module';
       maxAge: 25,
       logOnly: environment.production,
     }),
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient],
+        },
+        defaultLanguage: 'es'
+  })
   ],
   providers: [],
   bootstrap: [AppComponent],

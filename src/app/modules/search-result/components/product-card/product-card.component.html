@@ -2,6 +2,7 @@
   <div class="product-container d-flex">
     <img
       [src]="product?.picture"
+      [alt]="'COMMON.IMAGE_PLACEHOLDER' | translate"
       class="product-picture"
       [routerLink]="['/items', product?.id]"
       role="button"
