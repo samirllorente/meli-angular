@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ProductItem } from 'src/app/core/entities/product.entity';
-import { GET_PRODUCT_DETAIL } from './product-detail.action';
+import { DATA_CLEAN, GET_PRODUCT_DETAIL } from './product-detail.action';
 import { getProductDetailSelector } from './product-detail.seletor';
 
 @Injectable({
@@ -17,5 +17,9 @@ export class ProductDetailFacade {
 
   public getProducDetail(id: string): void {
     this.store.dispatch(GET_PRODUCT_DETAIL({ id }));
+  }
+
+  public cleanData(): void {
+    this.store.dispatch(DATA_CLEAN());
   }
 }

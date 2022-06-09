@@ -1,6 +1,10 @@
 <div class="container">
   <div class="row">
-    <app-items-filter class="d-block col-12 col-lg-10 offset-0 offset-lg-1" [filters]="categories$ | async"></app-items-filter>
+    <app-items-filter
+      class="d-block col-12 col-lg-10 offset-0 offset-lg-1"
+      [filters]="categories$ | async"
+    ></app-items-filter>
+    <app-loader [show]="isLoading"></app-loader>
     <app-product-card
       class="d-block col-12 col-lg-10 offset-0 offset-lg-1"
       *ngFor="let product of productList$ | async"

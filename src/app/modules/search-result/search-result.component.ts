@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { distinctUntilChanged, Observable, tap } from 'rxjs';
 import { ProductItem } from 'src/app/core/entities/product.entity';
 import { SearchResultFacade } from './store/search-result.facade';
 
@@ -10,6 +10,7 @@ import { SearchResultFacade } from './store/search-result.facade';
   styleUrls: ['./search-result.component.sass'],
 })
 export class SearchResultComponent implements OnInit {
+  public isLoading: boolean = true;
   public searchText: string | undefined;
 
   constructor(
@@ -23,6 +24,7 @@ export class SearchResultComponent implements OnInit {
 
   private getParams(): void {
     this.route.queryParams.subscribe((params) => {
+      this.isLoading = true;
       this.searchText = params['search'];
       this.searchResultFacade.getProductList(this.searchText || '');
     });
@@ -33,6 +35,11 @@ export class SearchResultComponent implements OnInit {
   }
 
   get productList$(): Observable<Array<ProductItem>> {
-    return this.searchResultFacade.productList$;
+    return this.searchResultFacade.productList$.pipe(
+      distinctUntilChanged(() => {
+        this.isLoading = false;
+        return false;
+      })
+    );
   }
 }

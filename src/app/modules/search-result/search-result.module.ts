@@ -7,18 +7,22 @@ import { SearchBoxModule } from '../search-box/search-box.module';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ItemsFilterComponent } from './components/items-filter/items-filter.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { LoaderComponent } from './components/loader/loader.component';
+import { ContentLoaderModule } from '@ngneat/content-loader';
 
 @NgModule({
   declarations: [
     SearchResultComponent,
     ProductCardComponent,
-    ItemsFilterComponent
+    ItemsFilterComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
     SearchResultRoutingModule,
     SearchBoxModule,
-    TranslateModule
-  ]
+    TranslateModule,
+    ContentLoaderModule,
+  ],
 })
-export class SearchResultModule { }
+export class SearchResultModule {}

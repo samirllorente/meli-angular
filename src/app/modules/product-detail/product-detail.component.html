@@ -1,45 +1,55 @@
 <div class="container">
   <div class="product row">
-    <div
-      class="product-picture col-12 col-lg-6 col-xl-7 offset-0 offset-lg-1 bg-white"
-    >
-      <img
-        [src]="productDetail?.picture || '/assets/img/placeholder.png'"
-        [alt]="'COMMON.IMAGE_PLACEHOLDER' | translate"
-        class="product-picture-img w-100"
-      />
-    </div>
-    <div class="product-detail col-12 col-lg-4 col-xl-3 bg-white">
-      <span class="product-info d-block">
-        {{
-          (productDetail?.condition === "new"
-            ? "PRODUCT_DETAIL.CONDITION.NEW"
-            : "PRODUCT_DETAIL.CONDITION.USED"
-          ) | translate
-        }}
-        - {{ productDetail?.sold_quantity | number }}
-        {{ "PRODUCT_DETAIL.SOLD_QUANTITY" | translate }}
-      </span>
-      <h1 class="product-title mb-0">
-        {{ productDetail?.title | titlecase }}
-      </h1>
-      <h2 class="product-price text-nowrap mb-0">
-        {{
-          productDetail?.price?.amount
-            | currency: productDetail?.price?.currency:"symbol-narrow":"0.0-0"
-        }}
-        <span>{{ productDetail?.price?.decimals || "00" }}</span>
-      </h2>
-      <button class="product-buy btn btn-primary w-100">{{ "PRODUCT_DETAIL.BUY_BUTTON" | translate }}</button>
-    </div>
-    <div
-      class="product-description col-12 col-lg-7 offset-0 offset-lg-1 bg-white"
-    >
-      <h3 class="product-description-title mb-0">{{ "PRODUCT_DETAIL.DESCRIPTION_TITLE" | translate }}</h3>
-      <p class="product-description-body mb-0">
-        {{ productDetail?.description }}
-      </p>
-    </div>
-    <div class="col-3 bg-white"></div>
+    <app-loader
+      class="col-12 col-lg-10 ffset-0 offset-lg-1 bg-white p-3"
+      [show]="isLoading"
+    ></app-loader>
+    <ng-container *ngIf="!isLoading">
+      <div
+        class="product-picture col-12 col-lg-6 col-xl-7 offset-0 offset-lg-1 bg-white"
+      >
+        <img
+          [src]="productDetail?.picture || '/assets/img/placeholder.png'"
+          [alt]="'COMMON.IMAGE_PLACEHOLDER' | translate"
+          class="product-picture-img w-100"
+        />
+      </div>
+      <div class="product-detail col-12 col-lg-4 col-xl-3 bg-white">
+        <span class="product-info d-block">
+          {{
+            (productDetail?.condition === "new"
+              ? "PRODUCT_DETAIL.CONDITION.NEW"
+              : "PRODUCT_DETAIL.CONDITION.USED"
+            ) | translate
+          }}
+          - {{ productDetail?.sold_quantity | number }}
+          {{ "PRODUCT_DETAIL.SOLD_QUANTITY" | translate }}
+        </span>
+        <h1 class="product-title mb-0">
+          {{ productDetail?.title | titlecase }}
+        </h1>
+        <h2 class="product-price text-nowrap mb-0">
+          {{
+            productDetail?.price?.amount
+              | currency: productDetail?.price?.currency:"symbol-narrow":"0.0-0"
+          }}
+          <span>{{ productDetail?.price?.decimals || "00" }}</span>
+        </h2>
+        <button class="product-buy btn btn-primary w-100">
+          {{ "PRODUCT_DETAIL.BUY_BUTTON" | translate }}
+        </button>
+      </div>
+      <div
+        class="product-description col-12 col-lg-7 offset-0 offset-lg-1 bg-white"
+      >
+        <h3 class="product-description-title mb-0">
+          {{ "PRODUCT_DETAIL.DESCRIPTION_TITLE" | translate }}
+        </h3>
+        <p class="product-description-body mb-0">
+          {{ productDetail?.description }}
+        </p>
+      </div>
+      <div class="col-3 bg-white"></div>
+    </ng-container>
   </div>
 </div>
