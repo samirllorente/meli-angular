@@ -6,6 +6,7 @@ import { ProductDetailComponent } from './product-detail.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ContentLoaderModule } from '@ngneat/content-loader';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ItemsFilterModule } from 'src/app/core/components/items-filter/items-filter.module';
 
 @NgModule({
   declarations: [ProductDetailComponent, LoaderComponent],
@@ -14,6 +15,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     ProductDetailRoutingModule,
     TranslateModule,
     ContentLoaderModule,
+    ItemsFilterModule,
   ],
 })
 export class ProductDetailModule {}

@@ -8,6 +8,7 @@ export interface SearchResponse {
 
 export interface ProductDetailResponse {
     author: Author,
+    categories: Array<string>,
     item: ProductItemExtended | null
 }
 

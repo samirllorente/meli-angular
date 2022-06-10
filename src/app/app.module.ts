@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { SearchBoxModule } from './modules/search-box/search-box.module';
 import { SearchResultModule } from './modules/search-result/search-result.module';
 import { ProductDetailModule } from './modules/product-detail/product-detail.module';
+import { ItemsFilterModule } from './core/components/items-filter/items-filter.module';
 
 import { StoresModule } from './core/modules/stores/stores.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -35,12 +36,12 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: (createTranslateLoader),
-          deps: [HttpClient],
-        },
-        defaultLanguage: 'es'
-  })
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+      defaultLanguage: 'es',
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -11,6 +11,7 @@ export const initialState: ProductDetailResponse = {
     name: '',
     lastname: '',
   },
+  categories: [],
   item: null,
 };
 

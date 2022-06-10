@@ -1,17 +1,21 @@
 <div class="container">
   <div class="product row">
+    <app-items-filter
+      class="d-block col-12 col-lg-10 offset-0 offset-lg-1"
+      [filters]="categories$ | async"
+    ></app-items-filter>
     <app-loader
-      class="col-12 col-lg-10 ffset-0 offset-lg-1 bg-white p-3"
+      class="col-12 col-lg-10 ffset-0 offset-lg-1 bg-white"
       [show]="isLoading"
     ></app-loader>
     <ng-container *ngIf="!isLoading">
       <div
-        class="product-picture col-12 col-lg-6 col-xl-7 offset-0 offset-lg-1 bg-white"
+        class="product-picture d-flex d-lg-block col-12 col-lg-6 col-xl-7 offset-0 offset-lg-1 bg-white"
       >
         <img
           [src]="productDetail?.picture || '/assets/img/placeholder.png'"
           [alt]="'COMMON.IMAGE_PLACEHOLDER' | translate"
-          class="product-picture-img w-100"
+          class="product-picture-img w-100 mx-auto"
         />
       </div>
       <div class="product-detail col-12 col-lg-4 col-xl-3 bg-white">

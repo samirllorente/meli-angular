@@ -7,12 +7,11 @@ export const getproductListState = createFeatureSelector<SearchResponse>(
 );
 
 export const getProductListSelector = createSelector(
-    getproductListState,
+  getproductListState,
   (state: SearchResponse) => state.items
 );
 
 export const getCategoriesSelector = createSelector(
   getproductListState,
-(state: SearchResponse) => state.categories
+  (state: SearchResponse) => state.categories
 );
-

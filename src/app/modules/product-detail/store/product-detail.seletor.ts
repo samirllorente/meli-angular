@@ -9,3 +9,8 @@ export const getProductDetailSelector = createSelector(
   getproductDetailState,
   (state: ProductDetailResponse) => state.item
 );
+
+export const getCategoriesSelector = createSelector(
+  getproductDetailState,
+  (state: ProductDetailResponse) => state.categories
+);

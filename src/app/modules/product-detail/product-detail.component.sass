@@ -1,7 +1,7 @@
 @import 'responsive'
 
 .product
-    margin: 16px 0 32px
+    margin-bottom: 16px
     &-picture
         padding-left: 32px
         &-img
@@ -34,5 +34,12 @@
             margin-top: 32px
 
 @include media-breakpoint-down(lg)
-    .product-detail
-        padding-right: 12px
+    .product
+        &-detail
+            padding-right: 12px
+        &-picture
+            padding: 0 32px
+
+@include media-breakpoint-down(lg)
+    .product-picture
+        padding: 0 16px

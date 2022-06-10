@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ProductItem } from 'src/app/core/entities/product.entity';
 import { ProductDetailFacade } from './store/product-detail.facade';
 
@@ -41,5 +42,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         this.isLoading = false;
       }
     });
+  }
+
+  get categories$(): Observable<Array<string>> {
+    return this.productDetailFacade.categories$;
   }
 }
